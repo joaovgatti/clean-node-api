@@ -1,2 +1,4 @@
 clean-node-api.iml
 .idea
+node_modules
+dist
