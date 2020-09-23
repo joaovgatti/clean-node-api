@@ -5,6 +5,7 @@ import {EmailValidator} from "../protocols/email-validator";
 import {ServerError} from "../errors/server-error";
 import {AddAccount,AddAccountModel} from "../../domain/usecases/add-account";
 import {AccountModel} from "../../domain/models/account";
+import exp from "constants";
 
 
 
@@ -24,7 +25,7 @@ const makeAddAccount = (): AddAccount =>{
             const fakeAccount = {
                 id:'valid_id',
                 name:'valid_name',
-                email:'valid_mail@gmail.com',
+                email:'valid_email@mail.com',
                 password:'valid_password'
             }
             return fakeAccount
@@ -182,4 +183,28 @@ describe('SignUp Controller',() => {
             password:'any_password',
         })
     })
+
+
+    test('Should return 200 if valid data is provided',() =>{
+        const {sut} = makeSut()
+        const httpRequest = {
+            body:{
+                name:'valid_name',
+                email:'valid_email@mail.com',
+                password:'valid_password',
+                passwordConfirmation:'valid_password'
+
+            }
+        }
+        const httpResponse = sut.handle(httpRequest)
+        expect(httpResponse.statusCode).toBe(200)
+        expect(httpResponse.body).toEqual({
+            name:'valid_name',
+            email:'valid_email@mail.com',
+            password:'valid_password',
+            id:'valid_id'
+        })
+    })
 })
+
+
