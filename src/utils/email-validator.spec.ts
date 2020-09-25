@@ -1,4 +1,4 @@
-import {EmailValidatorAdpter} from "./email-validator";
+import {EmailValidatorAdapter} from "./email-validator-adapter";
 import validator from "validator";
 import isEmail = validator.isEmail;
 
@@ -8,13 +8,9 @@ import isEmail = validator.isEmail;
      }
  }))
 
-const makeSut = (): EmailValidatorAdpter => {
-     return new EmailValidatorAdpter()
+const makeSut = (): EmailValidatorAdapter => {
+     return new EmailValidatorAdapter()
 }
-
-
-
-
 describe('EmailValidator Adapter',() => {
     test("Should return false when the validator returns false",() => {
         const sut = makeSut()
