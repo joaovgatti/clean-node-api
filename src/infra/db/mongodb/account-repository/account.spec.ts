@@ -3,18 +3,25 @@ import {AccountMongoRepository} from "./account";
 
 describe('Account Mongo Repository',() => {
 
-})
-
-beforeAll(async () => {
+    beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
-})
+    })
 
-afterAll(async () => {
+    afterAll(async () => {
     await MongoHelper.disconnect()
-})
+    })
 
-test('should return an account on success',async () => {
-    const sut = new AccountMongoRepository()
+    beforeEach(async () => {
+        const accountCollection = MongoHelper.getCollection('accounts')
+        await accountCollection.deleteMany({})
+    })
+
+    const makeSut = (): AccountMongoRepository => {
+    return new AccountMongoRepository()
+    }
+
+    test('should return an account on success',async () => {
+    const sut = makeSut()
     const account  = await sut.add({
         name:'any_name',
         email:'any_mail',
@@ -25,4 +32,5 @@ test('should return an account on success',async () => {
     expect(account.name).toBe('any_name')
     expect(account.email).toBe('any_mail')
     expect(account.password).toBe('any_password')
-})
+    })
+});
