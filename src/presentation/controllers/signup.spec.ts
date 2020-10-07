@@ -141,11 +141,11 @@ describe('SignUp Controller',() => {
     test('Should return 500 if EmailValidator throws',async () => {
         const {sut, emailValidatorStub} = makeSut()
         jest.spyOn(emailValidatorStub,'isValid').mockImplementation(() =>{
-            throw new ServerError()
+            throw new ServerError(null)
         })
         const httpResponse = await sut.handle(makeFakeRequest())
         expect(httpResponse.statusCode).toBe(500)
-        expect(httpResponse.body).toEqual(new ServerError())
+        expect(httpResponse.body).toEqual(new ServerError(null))
     })
     test('Should call AddAccount with the correct values',() =>{
         const {sut,addAccountStub} = makeSut()
