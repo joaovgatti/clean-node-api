@@ -1,2 +1,2 @@
 # clean-node-api
-TDD, Clean Code and much more with Node
+TDD, Clean Code and much more with Node and typescript.
