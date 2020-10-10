@@ -1,12 +1,12 @@
 import {LogInController} from "./login";
-import {badRequest, ok, serverError, unauthorized} from "../helpers/http-helper";
+import {badRequest, ok, serverError, unauthorized} from "../helpers/http/http-helper";
 import {MissingParamError} from "../errors/errors";
 import {SignUpController} from "./signup";
 import {EmailValidator} from "../protocols/email-validator";
 import {InvalidParamError} from "../errors/invalid-param-error";
 import {HttpRequest} from "../protocols/http";
 import {Authentication} from "../../domain/usecases/authentication";
-import {Validation} from "../helpers/validators/validation";
+import {Validation} from "../protocols/validation";
 
 
 

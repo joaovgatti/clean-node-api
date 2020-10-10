@@ -2,7 +2,7 @@ import {LogControllerDecorator} from "./log";
 import {Controller} from "../../presentation/protocols/controller";
 import {HttpRequest, HttpResponse} from "../../presentation/protocols/http";
 import {AccountModel} from "../../domain/models/account";
-import {ok, serverError} from "../../presentation/helpers/http-helper";
+import {ok, serverError} from "../../presentation/helpers/http/http-helper";
 import {LogErrorRepository} from "../../data/protocols/log-error-repository";
 
 

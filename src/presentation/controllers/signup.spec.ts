@@ -3,8 +3,8 @@ import {MissingParamError} from "../errors/errors";
 import {AddAccount,AddAccountModel} from "../../domain/usecases/add-account";
 import {AccountModel} from "../../domain/models/account";
 import {HttpRequest} from "../protocols/http";
-import {badRequest, ok} from "../helpers/http-helper";
-import {Validation} from "../helpers/validators/validation";
+import {badRequest, ok} from "../helpers/http/http-helper";
+import {Validation} from "../protocols/validation";
 
 const makeFakeRequest = (): HttpRequest => ({
     body: {
