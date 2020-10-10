@@ -5,35 +5,25 @@ import {MissingParamError} from "../errors/errors";
 import {EmailValidator} from "../protocols/email-validator";
 import {InvalidParamError} from "../errors/invalid-param-error";
 import {Authentication} from "../../domain/usecases/authentication";
+import {Validation} from "../helpers/validators/validation";
 
 export class LogInController implements Controller {
-    private readonly emailValidator: EmailValidator
+    private readonly validation: Validation
     private readonly authentication: Authentication
-    constructor(emailValidator: EmailValidator,authentication: Authentication) {
-        this.emailValidator = emailValidator
+    constructor(validation: Validation,authentication: Authentication) {
+        this.validation = validation
         this.authentication = authentication
     }
     async handle(httpRequest:HttpRequest): Promise<HttpResponse> {
         try {
-            const requiredFields = ["email","password"]
-            for(const item of requiredFields){
-                if(!httpRequest.body[item]){
-                    return new Promise(resolve => resolve(badRequest(new MissingParamError(item))))
-                }
+            const error = this.validation.validate(httpRequest.body)
+            if(error){
+                return(badRequest(error))
             }
             const {email, password} = httpRequest.body
-            const isValidEmail = this.emailValidator.isValid(email)
-            if (!isValidEmail) {
-                return new Promise(resolve => resolve(badRequest(new InvalidParamError('email'))))
-            }
-           const accessToken =  await this.authentication.auth(email,password)
-            if(!accessToken){
-                return unauthorized()
-            }
-            return ok({
-                accessToken
-            })
-
+            const accessToken =  await this.authentication.auth(email,password)
+            if(!accessToken){return unauthorized()}
+            return ok({accessToken})
         }catch (error){
             return serverError(error)
         }
