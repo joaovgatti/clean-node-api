@@ -5,6 +5,7 @@ import {AuthenticationModel} from "../../../domain/usecases/authentication";
 import {compare} from "bcrypt";
 import {HashComparer} from "../../protocols/cripto/hash-comparer";
 import {TokenGenerator} from "../../protocols/cripto/token-generator";
+import {rejects} from "assert";
 
 
 
@@ -119,4 +120,15 @@ describe('DbAuthentication Usecase',() => {
         await sut.auth(makeFakeAuthentication())
         expect(generateSpy).toHaveBeenCalledWith('any_id')
     })
+    test('should throw if TokenGenerator throws',async () => {
+        const {sut, tokenGeneratorStub} = makeSut()
+        jest.spyOn(tokenGeneratorStub,'generate').mockReturnValueOnce(new Promise((resolve, reject) =>
+        reject(new Error())))
+        const promise = sut.auth(makeFakeAuthentication())
+        await expect(promise).rejects.toThrow()
+
+    })
+
+
+
 })
