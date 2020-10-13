@@ -70,7 +70,6 @@ const makeSut = (): SutTypes => {
         tokenGeneratorStub
     }
 }
-
 describe('DbAuthentication Usecase',() => {
     test('Should call LoadAccountByEmailRepository',async () => {
         const {sut,loadAccountByEmailRepositoryStub} = makeSut()
@@ -127,6 +126,11 @@ describe('DbAuthentication Usecase',() => {
         const promise = sut.auth(makeFakeAuthentication())
         await expect(promise).rejects.toThrow()
 
+    })
+    test('should return an token on success',async () => {
+        const {sut} = makeSut()
+        const accessToken = await sut.auth(makeFakeAuthentication())
+        expect(accessToken).toBe('any_token')
     })
 
 
