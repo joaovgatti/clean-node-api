@@ -10,8 +10,8 @@ export class DbAuthentication implements Authentication {
     private readonly encrypter: Encrypter
     private readonly updateAccessTokenRepository: UpdateAccessTokenRepository
 
-    constructor(loadAccoutByEmailRepository: LoadAccountByEmailRepository, hashComparer: HashComparer, encrypter: Encrypter, updateAccessTokenRepository: UpdateAccessTokenRepository) {
-        this.loadAccountByEmailRepository = loadAccoutByEmailRepository
+    constructor(loadAccountByEmailRepository: LoadAccountByEmailRepository, hashComparer: HashComparer, encrypter: Encrypter, updateAccessTokenRepository: UpdateAccessTokenRepository) {
+        this.loadAccountByEmailRepository = loadAccountByEmailRepository
         this.hashComparer = hashComparer
         this.encrypter = encrypter
         this.updateAccessTokenRepository = updateAccessTokenRepository
