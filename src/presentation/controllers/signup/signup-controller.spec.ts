@@ -1,4 +1,4 @@
-import {SignUpController} from "./signup";
+import {SignUpController} from "./signup-controller";
 import {MissingParamError} from "../../errors/errors";
 import {AddAccount,AddAccountModel} from "../../../domain/usecases/add-account";
 import {AccountModel} from "../../../domain/models/account";

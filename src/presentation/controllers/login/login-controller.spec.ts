@@ -1,4 +1,4 @@
-import {LogInController} from "./login";
+import {LogInController} from "./login-controller";
 import {badRequest, ok, unauthorized} from "../../helpers/http/http-helper";
 import {MissingParamError} from "../../errors/errors";
 import {HttpRequest} from "../../protocols/http";

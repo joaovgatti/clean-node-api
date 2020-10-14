@@ -3,7 +3,7 @@ import {Hasher} from "../../protocols/cripto/hasher";
 import {rejects} from "assert";
 import {AddAccountModel} from "../../../domain/usecases/add-account";
 import {AccountModel} from "../../../domain/models/account";
-import {AddAccountRepository} from "../../protocols/db/add-account-repository";
+import {AddAccountRepository} from "../../protocols/db/account/add-account-repository";
 
 interface SutTypes{
     sut: DbAddAccount

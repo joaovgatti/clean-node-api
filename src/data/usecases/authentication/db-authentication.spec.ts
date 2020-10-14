@@ -1,11 +1,11 @@
 import {AccountModel} from "../../../domain/models/account";
 import {DbAuthentication} from "./db-authentication";
-import {LoadAccountByEmailRepository} from "../../protocols/db/load-account-by-email-repository";
+import {LoadAccountByEmailRepository} from "../../protocols/db/account/load-account-by-email-repository";
 import {AuthenticationModel} from "../../../domain/usecases/authentication";
 import {compare} from "bcrypt";
 import {HashComparer} from "../../protocols/cripto/hash-comparer";
 import {Encrypter} from "../../protocols/cripto/encrypter";
-import {UpdateAccessTokenRepository} from "../../protocols/db/update-access-token-repo";
+import {UpdateAccessTokenRepository} from "../../protocols/db/account/update-access-token-repo";
 
 
 
