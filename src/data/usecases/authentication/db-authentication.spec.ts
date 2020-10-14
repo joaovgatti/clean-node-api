@@ -5,7 +5,6 @@ import {AuthenticationModel} from "../../../domain/usecases/authentication";
 import {compare} from "bcrypt";
 import {HashComparer} from "../../protocols/cripto/hash-comparer";
 import {TokenGenerator} from "../../protocols/cripto/token-generator";
-import {rejects} from "assert";
 import {UpdateAccessTokenRepository} from "../../protocols/db/update-access-token-repo";
 
 
