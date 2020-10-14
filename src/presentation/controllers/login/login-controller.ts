@@ -4,7 +4,7 @@ import {badRequest, ok, serverError, unauthorized} from "../../helpers/http/http
 import {Authentication} from "../../../domain/usecases/authentication";
 import {Validation} from "../../protocols/validation";
 
-export class LogInController implements Controller {
+export class LoginController implements Controller {
     private readonly validation: Validation
     private readonly authentication: Authentication
     constructor(validation: Validation,authentication: Authentication) {
