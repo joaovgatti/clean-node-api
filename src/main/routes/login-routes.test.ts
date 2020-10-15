@@ -28,7 +28,7 @@ describe('Login Routes',() => {
 
     describe('POST /signup',() => {
         test('should return 200 on signup', async () => {
-              await request(app)
+               request(app)
                 .post('/api/signup')
                 .send({
                     name: 'joao',
@@ -48,7 +48,7 @@ describe('Login Routes',() => {
                 email:'joao@gmail.com',
                 password
             })
-             await request(app)
+                request(app)
                 .post('/api/login')
                 .send({
                     email:'joao@gmail.com',

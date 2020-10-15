@@ -9,6 +9,13 @@ export const badRequest = (error:Error):HttpResponse => {
     }
 }
 
+export const forbidden = (error: Error): HttpResponse => {
+    return{
+        statusCode:403,
+        body:error
+    }
+}
+
 export const serverError = (erro: Error) : HttpResponse => ({
         statusCode:500,
         body: new ServerError(erro.stack)
