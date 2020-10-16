@@ -2,7 +2,7 @@ import {HttpRequest,HttpResponse} from "../../protocols/http";
 import {MissingParamError} from "../../errors/errors";
 import {badRequest, forbidden, ok, serverError} from "../../helpers/http/http-helper";
 import {Controller} from "../../protocols/controller";
-import {EmailValidator} from "../../protocols/email-validator";
+import {EmailValidator} from "../../../validation/protocols/email-validator";
 import {InvalidParamError} from "../../errors/invalid-param-error";
 import {AddAccount} from "../../../domain/usecases/add-account";
 import {Validation} from "../../protocols/validation";

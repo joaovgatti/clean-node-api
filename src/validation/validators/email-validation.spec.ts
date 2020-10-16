@@ -1,6 +1,6 @@
 import {EmailValidation} from "./email-validation";
-import {EmailValidator} from "../../protocols/email-validator";
-import {ServerError} from "../../errors/server-error";
+import {EmailValidator} from "../protocols/email-validator";
+import {ServerError} from "../../presentation/errors/server-error";
 
 
 const makeEmailValidator = (): EmailValidator =>{
