@@ -1,7 +1,7 @@
 import {Controller} from "../../../protocols/controller";
 import {HttpRequest, HttpResponse} from "../../../protocols/http";
 import {Validation} from "../../../protocols/validation";
-import {badRequest, serverError} from "../../../helpers/http/http-helper";
+import {badRequest, noContent, serverError} from "../../../helpers/http/http-helper";
 import {AddSurvey} from "../../../../domain/usecases/add-survey";
 import {ServerError} from "../../../errors/server-error";
 
@@ -22,7 +22,7 @@ export class AddSurveyController implements Controller {
                 question,
                 answers
             })
-            return null
+            return noContent()
         }catch (e){
             return serverError(e)
         }
