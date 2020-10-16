@@ -121,14 +121,6 @@ describe('SignUp Controller',() => {
         expect(httpResponse).toEqual(forbidden(new EmailInUseError()))
     })
 
-
-
-
-
-
-
-
-
     test('should return 500 if validation throws',async () => {
         const {sut, authenticationStub} = makeSut()
         jest.spyOn(authenticationStub,'auth').mockReturnValueOnce(
