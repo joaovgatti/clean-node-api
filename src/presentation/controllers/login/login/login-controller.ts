@@ -1,8 +1,8 @@
-import {Controller} from "../../protocols/controller";
-import {HttpRequest, HttpResponse} from "../../protocols/http";
-import {badRequest, ok, serverError, unauthorized} from "../../helpers/http/http-helper";
-import {Authentication} from "../../../domain/usecases/authentication";
-import {Validation} from "../../protocols/validation";
+import {Controller} from "../../../protocols/controller";
+import {HttpRequest, HttpResponse} from "../../../protocols/http";
+import {badRequest, ok, serverError, unauthorized} from "../../../helpers/http/http-helper";
+import {Authentication} from "../../../../domain/usecases/authentication";
+import {Validation} from "../../../protocols/validation";
 
 export class LoginController implements Controller {
     private readonly validation: Validation

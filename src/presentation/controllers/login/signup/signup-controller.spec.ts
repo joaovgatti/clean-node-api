@@ -1,12 +1,12 @@
 import {SignUpController} from "./signup-controller";
-import {MissingParamError} from "../../errors/errors";
-import {AddAccount,AddAccountModel} from "../../../domain/usecases/add-account";
-import {AccountModel} from "../../../domain/models/account";
-import {HttpRequest} from "../../protocols/http";
-import {badRequest, forbidden, ok, serverError} from "../../helpers/http/http-helper";
-import {Validation} from "../../protocols/validation";
-import {Authentication, AuthenticationModel} from "../../../domain/usecases/authentication";
-import {EmailInUseError} from "../../errors/email-in-use-error";
+import {MissingParamError} from "../../../errors/errors";
+import {AddAccount,AddAccountModel} from "../../../../domain/usecases/add-account";
+import {AccountModel} from "../../../../domain/models/account";
+import {HttpRequest} from "../../../protocols/http";
+import {badRequest, forbidden, ok, serverError} from "../../../helpers/http/http-helper";
+import {Validation} from "../../../protocols/validation";
+import {Authentication, AuthenticationModel} from "../../../../domain/usecases/authentication";
+import {EmailInUseError} from "../../../errors/email-in-use-error";
 
 const makeFakeRequest = (): HttpRequest => ({
     body: {
