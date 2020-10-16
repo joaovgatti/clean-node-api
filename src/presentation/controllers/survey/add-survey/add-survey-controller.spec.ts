@@ -26,10 +26,22 @@ describe('AddSurvey controller',() => {
         return new MakeValidationStub()
     }
 
+    interface SutTypes {
+        sut: AddSurveyController
+        validationStub: Validation
+    }
+
+    const makeSut = (): SutTypes => {
+        const validationStub = makeValidationStub()
+        const sut = new AddSurveyController(validationStub)
+        return {
+            sut,
+            validationStub
+        }
+    }
 
     test('should call Validation with correct values',async () => {
-        const validationStub = makeValidationStub()
-        const sut =  new AddSurveyController(validationStub)
+        const {sut,validationStub} = makeSut()
         const validateSpy = jest.spyOn(validationStub,'validate')
         const httpRequest = makeFakeRequest()
         await sut.handle(httpRequest)
