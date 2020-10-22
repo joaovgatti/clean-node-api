@@ -1,12 +1,12 @@
-import {EmailValidator} from "../../../../validation/protocols/email-validator";
+import {EmailValidator} from "../../../../../validation/protocols/email-validator";
 import {makeLoginValidation} from "./login-validation-factory";
-import {Validation} from "../../../../presentation/protocols/validation";
-import {RequiredFieldValidation} from "../../../../validation/validators/required-field-validation";
-import {EmailValidatorAdapter} from "../../../../infra/validators/utils/email-validator-adapter";
-import {EmailValidation} from "../../../../validation/validators/email-validation";
-import {ValidationComposite} from "../../../../validation/validators/validation-composite";
+import {Validation} from "../../../../../presentation/protocols/validation";
+import {RequiredFieldValidation} from "../../../../../validation/validators/required-field-validation";
+import {EmailValidatorAdapter} from "../../../../../infra/validators/utils/email-validator-adapter";
+import {EmailValidation} from "../../../../../validation/validators/email-validation";
+import {ValidationComposite} from "../../../../../validation/validators/validation-composite";
 
-jest.mock('../../../../validation/validators/validation-composite')
+jest.mock('../../../../../validation/validators/validation-composite')
 
 
 const makeEmailValidator = (): EmailValidator => {

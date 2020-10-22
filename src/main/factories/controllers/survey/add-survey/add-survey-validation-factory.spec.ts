@@ -1,9 +1,9 @@
-import {Validation} from "../../../../presentation/protocols/validation";
-import {RequiredFieldValidation} from "../../../../validation/validators/required-field-validation";
-import {ValidationComposite} from "../../../../validation/validators/validation-composite";
+import {Validation} from "../../../../../presentation/protocols/validation";
+import {RequiredFieldValidation} from "../../../../../validation/validators/required-field-validation";
+import {ValidationComposite} from "../../../../../validation/validators/validation-composite";
 import {makeAddSurveyValidation} from "./add-survey-validation-factory";
 
-jest.mock('../../../../validation/validators/validation-composite')
+jest.mock('../../../../../validation/validators/validation-composite')
 
 
 
