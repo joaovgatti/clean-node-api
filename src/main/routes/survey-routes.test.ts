@@ -38,5 +38,21 @@ describe('Login Routes',() => {
                 })
                 .expect(204)
         })
+        test('should return 403 on addSurvey success', async () => {
+
+                request(app)
+                .post('/api/surveys')
+                .send({
+                    question:'question',
+                    answers: [{
+                        answers:'answer 1',
+                        image:'image'
+                    },{
+                        answers: 'answers 2'
+                    }]
+                })
+                .expect(403)
+        })
+
     })
 })
